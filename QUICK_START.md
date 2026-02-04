@@ -3,6 +3,7 @@
 ## For Your Friend: Setup in 5 Minutes
 
 ### Prerequisites
+
 - PHP 8.2+ (with MySQL extensions enabled)
 - Composer installed
 - Node.js 18+ and npm
@@ -57,19 +58,22 @@ php artisan serve
 ✅ The `.env` file is NOT in the repository (for security)  
 ✅ You need to configure your own MySQL credentials  
 ✅ Run `php artisan db:seed` to get sample products and admin user  
-✅ Make sure MySQL extensions are enabled in php.ini  
+✅ Make sure MySQL extensions are enabled in php.ini
 
 ---
 
 ## Troubleshooting
 
 **"Could not find driver"**
+
 - Enable `extension=pdo_mysql` and `extension=mysqli` in php.ini
 
 **"Access denied for user"**
+
 - Check DB_PASSWORD in .env matches your MySQL password
 
 **"Database does not exist"**
+
 - Create database: `CREATE DATABASE cafe_noir;`
 
 ---

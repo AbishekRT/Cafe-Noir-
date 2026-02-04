@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProductSeeder extends Seeder
 {
@@ -256,5 +258,82 @@ class ProductSeeder extends Seeder
 
             Product::create($productData);
         }
+
+        // Add product images
+        $this->addProductImages();
+    }
+
+    /**
+     * Download and add product images from Unsplash
+     */
+    private function addProductImages(): void
+    {
+        $imageUrls = [
+            'ethiopian-yirgacheffe' => 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&q=80',
+            'colombian-supremo' => 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&q=80',
+            'guatemala-antigua' => 'https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=800&q=80',
+            'kenya-aa' => 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80',
+            'sumatra-mandheling' => 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80',
+            'house-blend' => 'https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=800&q=80',
+            'breakfast-blend' => 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80',
+            'dark-roast-blend' => 'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&q=80',
+            'decaf-blend' => 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&q=80',
+            'classic-espresso' => 'https://images.unsplash.com/photo-1551030173-122aabc4489c?w=800&q=80',
+            'single-origin-espresso' => 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80',
+            'ristretto-roast' => 'https://images.unsplash.com/photo-1545665225-b23b99e4d45e?w=800&q=80',
+            'ceramic-pour-over-dripper' => 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80',
+            'cafe-noir-travel-mug' => 'https://images.unsplash.com/photo-1566888596782-c7f41cc184c5?w=800&q=80',
+            'burr-coffee-grinder' => 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=800&q=80',
+            'glass-french-press' => 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=800&q=80',
+            'coffee-storage-canister' => 'https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=800&q=80',
+            'digital-coffee-scale' => 'https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=800&q=80',
+            'cafe-noir-mug-set' => 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=800&q=80',
+        ];
+
+        $imageDir = public_path('storage/products');
+        if (!file_exists($imageDir)) {
+            mkdir($imageDir, 0755, true);
+        }
+
+        $this->command->info('Downloading product images...');
+
+        $products = Product::all();
+        $downloaded = 0;
+
+        foreach ($products as $product) {
+            if (isset($imageUrls[$product->slug])) {
+                $imageUrl = $imageUrls[$product->slug];
+                $imageName = $product->slug . '.jpg';
+                $imagePath = $imageDir . '/' . $imageName;
+
+                try {
+                    $imageContent = @file_get_contents($imageUrl);
+
+                    if ($imageContent !== false) {
+                        file_put_contents($imagePath, $imageContent);
+
+                        ProductImage::create([
+                            'product_id' => $product->id,
+                            'original_path' => 'products/' . $imageName,
+                            'large_path' => 'products/' . $imageName,
+                            'medium_path' => 'products/' . $imageName,
+                            'thumbnail_path' => 'products/' . $imageName,
+                            'alt_text' => $product->name,
+                            'sort_order' => 1,
+                            'is_primary' => true,
+                        ]);
+
+                        $downloaded++;
+                        $this->command->info("✓ Downloaded: {$product->name}");
+                    }
+                } catch (\Exception $e) {
+                    $this->command->warn("✗ Failed to download: {$product->name}");
+                }
+
+                usleep(300000); // 0.3 second delay
+            }
+        }
+
+        $this->command->info("Downloaded {$downloaded} product images successfully!");
     }
 }
