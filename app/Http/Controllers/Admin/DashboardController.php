@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Contact;
+use App\Models\Category;
+use App\Models\User;
 
 /**
  * DashboardController
@@ -19,24 +21,23 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        // Get dashboard metrics
-        $totalProducts = Product::count();
-        $activeProducts = Product::active()->count();
-        $totalOrders = Order::count();
-        $pendingOrders = Order::withStatus(Order::STATUS_PENDING)->count();
-        $unreadContacts = Contact::unread()->count();
-
-        // Calculate revenue
-        $totalRevenue = Order::where('payment_status', Order::PAYMENT_PAID)
-            ->sum('total');
-
-        $monthlyRevenue = Order::where('payment_status', Order::PAYMENT_PAID)
-            ->whereMonth('created_at', now()->month)
-            ->whereYear('created_at', now()->year)
-            ->sum('total');
+        // Get dashboard statistics
+        $stats = [
+            'totalProducts' => Product::count(),
+            'activeProducts' => Product::active()->count(),
+            'totalOrders' => Order::count(),
+            'pendingOrders' => Order::withStatus(Order::STATUS_PENDING)->count(),
+            'unreadContacts' => Contact::unread()->count(),
+            'totalCategories' => Category::count(),
+            'totalCustomers' => User::where('is_admin', false)->count(),
+            'totalRevenue' => Order::where('payment_status', Order::PAYMENT_PAID)->sum('total'),
+            'monthlyRevenue' => Order::where('payment_status', Order::PAYMENT_PAID)
+                ->whereMonth('created_at', now()->month)
+                ->whereYear('created_at', now()->year)
+                ->sum('total'),
+        ];
 
         // Get recent orders (eager loading for performance)
-        // Query count: 1
         $recentOrders = Order::with('items')
             ->orderBy('created_at', 'desc')
             ->take(10)
@@ -48,24 +49,18 @@ class DashboardController extends Controller
             ->get();
 
         // Get low stock products
-        $lowStockProducts = Product::whereNotNull('stock')
-            ->where('stock', '<=', 5)
-            ->where('stock', '>', 0)
-            ->orderBy('stock', 'asc')
+        $lowStockProducts = Product::whereNotNull('stock_quantity')
+            ->where('stock_quantity', '<=', 5)
+            ->where('stock_quantity', '>', 0)
+            ->orderBy('stock_quantity', 'asc')
             ->take(5)
             ->get();
 
         // Get out of stock products
-        $outOfStockProducts = Product::where('stock', 0)->count();
+        $outOfStockProducts = Product::where('stock_quantity', 0)->count();
 
         return view('admin.dashboard', compact(
-            'totalProducts',
-            'activeProducts',
-            'totalOrders',
-            'pendingOrders',
-            'unreadContacts',
-            'totalRevenue',
-            'monthlyRevenue',
+            'stats',
             'recentOrders',
             'recentContacts',
             'lowStockProducts',
