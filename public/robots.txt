@@ -1,0 +1,16 @@
+# Cafe Noir - Premium Coffee E-commerce
+# Developed by Nexora Solutions
+
+User-agent: *
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /profile/
+Disallow: /password/
+Disallow: /_debugbar/
+
+# Allow all other pages
+Allow: /
+
+# Sitemap location
+Sitemap: http://localhost:8000/sitemap.xml

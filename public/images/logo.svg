@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80">
+  <defs>
+    <linearGradient id="coffeeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4E342E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6D4C41;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#C9A24D;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E6C673;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C9A24D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Coffee Cup Icon -->
+  <g transform="translate(10, 10)">
+    <!-- Cup body -->
+    <path d="M5 20 L5 45 Q5 55 15 55 L35 55 Q45 55 45 45 L45 20 Z" fill="url(#coffeeGradient)" />
+    <!-- Cup handle -->
+    <path d="M45 25 Q55 25 55 35 Q55 45 45 45" stroke="url(#coffeeGradient)" stroke-width="4" fill="none" />
+    <!-- Coffee liquid -->
+    <path d="M10 25 L10 42 Q10 50 18 50 L32 50 Q40 50 40 42 L40 25 Z" fill="#C9A24D" opacity="0.8" />
+    <!-- Steam lines -->
+    <path d="M15 15 Q18 8 15 2" stroke="#4E342E" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6" />
+    <path d="M25 12 Q28 5 25 -1" stroke="#4E342E" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6" />
+    <path d="M35 15 Q38 8 35 2" stroke="#4E342E" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6" />
+  </g>
+  
+  <!-- Text: CAFÉ -->
+  <text x="75" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="bold" fill="url(#coffeeGradient)" letter-spacing="3">
+    CAFÉ
+  </text>
+  
+  <!-- Text: NOIR -->
+  <text x="170" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="bold" fill="url(#goldGradient)" letter-spacing="3">
+    NOIR
+  </text>
+  
+  <!-- Tagline -->
+  <text x="75" y="62" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#6D4C41" letter-spacing="4" font-style="italic">
+    PREMIUM COFFEE
+  </text>
+  
+  <!-- Decorative line -->
+  <line x1="75" y1="68" x2="250" y2="68" stroke="url(#goldGradient)" stroke-width="1" />
+</svg>
