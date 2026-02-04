@@ -13,6 +13,7 @@ All product images have been downloaded and added to the database.
 ### Products with Images
 
 #### Coffee Products (12):
+
 1. Ethiopian Yirgacheffe
 2. Colombian Supremo
 3. Guatemala Antigua
@@ -27,6 +28,7 @@ All product images have been downloaded and added to the database.
 12. Ristretto Roast
 
 #### Accessories (7):
+
 13. Ceramic Pour-Over Dripper
 14. Cafe Noir Travel Mug
 15. Burr Coffee Grinder
@@ -42,6 +44,7 @@ All images sourced from [Unsplash](https://unsplash.com) - free, high-quality st
 ### Database
 
 Product images are stored in the `product_images` table with the following fields:
+
 - `product_id` - Foreign key to products table
 - `original_path` - Path to the original image
 - `large_path` - 1200px width version
@@ -53,6 +56,7 @@ Product images are stored in the `product_images` table with the following field
 ### Note for Setup
 
 When cloning this repository:
+
 1. Product images are stored in `public/storage/products/` (gitignored)
 2. After running migrations and seeding, you can download the images again or add your own
 3. Images will be linked to products via the `product_images` table through the seeder
