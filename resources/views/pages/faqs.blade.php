@@ -517,3 +517,4 @@ Features: Accordion-style FAQ sections
         });
     </script>
 </x-app-layout>
+

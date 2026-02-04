@@ -159,3 +159,4 @@ Features: Category listing with product counts
         </div>
     </div>
 </x-app-layout>
+

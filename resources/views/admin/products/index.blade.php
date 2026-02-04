@@ -119,9 +119,9 @@
                                         {{ $product->category->name ?? 'Uncategorized' }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        <div class="text-sm font-medium text-heading">${{ number_format($product->price, 2) }}</div>
+                                        <div class="text-sm font-medium text-heading">Rs. {{ number_format($product->price) }}</div>
                                         @if($product->compare_price)
-                                            <div class="text-xs text-muted line-through">${{ number_format($product->compare_price, 2) }}</div>
+                                            <div class="text-xs text-muted line-through">Rs. {{ number_format($product->compare_price) }}</div>
                                         @endif
                                     </td>
                                     <td class="px-6 py-4">
@@ -199,3 +199,4 @@
         </div>
     </div>
 </x-app-layout>
+

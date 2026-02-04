@@ -82,7 +82,7 @@
                                         {{ $order->items->count() }} {{ Str::plural('item', $order->items->count()) }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm font-medium text-heading">${{ number_format($order->total, 2) }}</div>
+                                        <div class="text-sm font-medium text-heading">Rs. {{ number_format($order->total) }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="px-2 py-1 text-xs font-medium rounded-full {{ $order->payment_method === 'cod' ? 'bg-orange-100 text-orange-800' : 'bg-blue-100 text-blue-800' }}">
@@ -142,3 +142,4 @@
         </div>
     </div>
 </x-app-layout>
+

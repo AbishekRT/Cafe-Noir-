@@ -180,3 +180,4 @@ Features: Hero section, Featured products, Category showcase, Brand story
         </div>
     </section>
 </x-app-layout>
+

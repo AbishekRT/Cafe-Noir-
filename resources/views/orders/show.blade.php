@@ -98,9 +98,9 @@ Shows detailed order information for authenticated users
                                         <p class="text-sm text-muted">Qty: {{ $item->quantity }}</p>
                                     </div>
                                     <div class="text-right">
-                                        <p class="text-sm text-muted">${{ number_format($item->price, 2) }} each</p>
+                                        <p class="text-sm text-muted">Rs. {{ number_format($item->price) }} each</p>
                                         <p class="font-medium text-heading">
-                                            ${{ number_format($item->quantity * $item->price, 2) }}</p>
+                                            Rs. {{ number_format($1) }}</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -137,25 +137,25 @@ Shows detailed order information for authenticated users
                             </div>
                             <div class="flex justify-between text-sm">
                                 <span class="text-muted">Subtotal</span>
-                                <span class="text-heading">${{ number_format($order->subtotal, 2) }}</span>
+                                <span class="text-heading">Rs. {{ number_format($order->subtotal) }}</span>
                             </div>
                             @if($order->tax > 0)
                                 <div class="flex justify-between text-sm">
                                     <span class="text-muted">Tax</span>
-                                    <span class="text-heading">${{ number_format($order->tax, 2) }}</span>
+                                    <span class="text-heading">Rs. {{ number_format($order->tax) }}</span>
                                 </div>
                             @endif
                             <div class="flex justify-between text-sm">
                                 <span class="text-muted">Shipping</span>
                                 @if($order->shipping_cost > 0)
-                                    <span class="text-heading">${{ number_format($order->shipping_cost, 2) }}</span>
+                                    <span class="text-heading">Rs. {{ number_format($order->shipping_cost) }}</span>
                                 @else
                                     <span class="text-green-600">Free</span>
                                 @endif
                             </div>
                             <div class="pt-3 border-t border-gray-200 flex justify-between text-lg font-bold">
                                 <span class="text-heading">Total</span>
-                                <span class="text-heading">${{ number_format($order->total, 2) }}</span>
+                                <span class="text-heading">Rs. {{ number_format($order->total) }}</span>
                             </div>
                         </div>
                     </div>
@@ -210,3 +210,4 @@ Shows detailed order information for authenticated users
         </div>
     </div>
 </x-app-layout>
+

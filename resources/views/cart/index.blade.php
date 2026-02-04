@@ -200,3 +200,4 @@ Features: Cart items, Quantity update, Remove items, Order summary
         </div>
     </section>
 </x-app-layout>
+

@@ -239,3 +239,4 @@ Features: Image gallery, Product info, Add to cart, Related products
         </script>
     @endpush
 </x-app-layout>
+

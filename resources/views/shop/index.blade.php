@@ -162,3 +162,4 @@ Features: Product grid, Category filter, Search, Sorting, Pagination
         </div>
     </section>
 </x-app-layout>
+

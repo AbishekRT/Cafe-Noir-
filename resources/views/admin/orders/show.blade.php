@@ -72,9 +72,9 @@ Features: Order details, status update, order history
                                     </div>
                                     <div class="text-right">
                                         <p class="text-sm text-muted">{{ $item->quantity }} ×
-                                            ${{ number_format($item->price, 2) }}</p>
+                                            Rs. {{ number_format($item->price) }}</p>
                                         <p class="font-medium text-heading">
-                                            ${{ number_format($item->quantity * $item->price, 2) }}</p>
+                                            Rs. {{ number_format($1) }}</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -83,23 +83,23 @@ Features: Order details, status update, order history
                             <div class="space-y-2">
                                 <div class="flex justify-between text-sm">
                                     <span class="text-muted">Subtotal</span>
-                                    <span class="text-heading">${{ number_format($order->subtotal, 2) }}</span>
+                                    <span class="text-heading">Rs. {{ number_format($order->subtotal) }}</span>
                                 </div>
                                 @if($order->tax > 0)
                                     <div class="flex justify-between text-sm">
                                         <span class="text-muted">Tax</span>
-                                        <span class="text-heading">${{ number_format($order->tax, 2) }}</span>
+                                        <span class="text-heading">Rs. {{ number_format($order->tax) }}</span>
                                     </div>
                                 @endif
                                 @if($order->shipping_cost > 0)
                                     <div class="flex justify-between text-sm">
                                         <span class="text-muted">Shipping</span>
-                                        <span class="text-heading">${{ number_format($order->shipping_cost, 2) }}</span>
+                                        <span class="text-heading">Rs. {{ number_format($order->shipping_cost) }}</span>
                                     </div>
                                 @endif
                                 <div class="flex justify-between text-lg font-semibold pt-2 border-t border-gray-200">
                                     <span class="text-heading">Total</span>
-                                    <span class="text-heading">${{ number_format($order->total, 2) }}</span>
+                                    <span class="text-heading">Rs. {{ number_format($order->total) }}</span>
                                 </div>
                             </div>
                         </div>
@@ -334,3 +334,4 @@ Features: Order details, status update, order history
         </div>
     </div>
 </x-app-layout>
+

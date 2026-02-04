@@ -308,3 +308,4 @@ Features: Contact form, Contact info, Map placeholder, Business hours
         </div>
     </section>
 </x-app-layout>
+

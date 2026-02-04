@@ -91,7 +91,7 @@ Shows order history for authenticated users
                                                 {{ Str::plural('item', $order->items->sum('quantity')) }}
                                             </div>
                                             <div class="font-bold text-heading">
-                                                Total: ${{ number_format($order->total, 2) }}
+                                                Total: Rs. {{ number_format($order->total) }}
                                             </div>
                                         </div>
                                     </div>
@@ -128,3 +128,4 @@ Shows order history for authenticated users
         </div>
     </div>
 </x-app-layout>
+

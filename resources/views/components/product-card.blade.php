@@ -82,3 +82,5 @@ Usage: <x-product-card :product="$product" />
         @endif
     </div>
 </article>
+
+

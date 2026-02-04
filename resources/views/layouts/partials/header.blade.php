@@ -144,3 +144,4 @@ Includes: Logo, Navigation, Developer Credit, Cart Icon
         menu.classList.toggle('hidden');
     });
 </script>
+

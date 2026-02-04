@@ -32,7 +32,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-muted font-medium">Total Revenue</p>
-                            <p class="text-2xl font-bold text-heading mt-1">${{ number_format($stats['totalRevenue'], 2) }}</p>
+                            <p class="text-2xl font-bold text-heading mt-1">Rs. {{ number_format($1) }}</p>
                         </div>
                         <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                             <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,7 +138,7 @@
                                             </span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-heading">
-                                            ${{ number_format($order->total, 2) }}
+                                            Rs. {{ number_format($order->total) }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-muted">
                                             {{ $order->created_at->format('M d, Y') }}
@@ -284,3 +284,4 @@
         </div>
     </div>
 </x-app-layout>
+
