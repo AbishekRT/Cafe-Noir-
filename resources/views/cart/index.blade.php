@@ -57,11 +57,11 @@ Features: Cart items, Quantity update, Remove items, Order summary
                                     <!-- Price -->
                                     <div class="flex items-center space-x-2 mt-1">
                                         <span class="text-accent font-semibold">
-                                            {{ config('cafe.currency.symbol') }}{{ number_format($item['price'], 2) }}
+                                            {{ config('cafe.currency.symbol') }}{{ number_format($item['price']) }}
                                         </span>
                                         @if($item['has_discount'] && $item['original_price'] > $item['price'])
                                             <span class="text-sm text-muted line-through">
-                                                {{ config('cafe.currency.symbol') }}{{ number_format($item['original_price'], 2) }}
+                                                {{ config('cafe.currency.symbol') }}{{ number_format($item['original_price']) }}
                                             </span>
                                         @endif
                                     </div>
@@ -97,7 +97,7 @@ Features: Cart items, Quantity update, Remove items, Order summary
                                         <!-- Item Total -->
                                         <div class="text-right">
                                             <span class="text-lg font-bold text-heading">
-                                                {{ config('cafe.currency.symbol') }}{{ number_format($item['price'] * $item['quantity'], 2) }}
+                                                {{ config('cafe.currency.symbol') }}{{ number_format($item['price'] * $item['quantity']) }}
                                             </span>
                                         </div>
                                     </div>
@@ -149,13 +149,13 @@ Features: Cart items, Quantity update, Remove items, Order summary
                                 <div class="flex justify-between">
                                     <span class="text-muted">Subtotal</span>
                                     <span
-                                        class="text-heading font-medium">{{ config('cafe.currency.symbol') }}{{ number_format($subtotal, 2) }}</span>
+                                        class="text-heading font-medium">{{ config('cafe.currency.symbol') }}{{ number_format($subtotal) }}</span>
                                 </div>
                                 @if($taxRate > 0)
                                     <div class="flex justify-between">
                                         <span class="text-muted">Tax ({{ $taxRate }}%)</span>
                                         <span
-                                            class="text-heading font-medium">{{ config('cafe.currency.symbol') }}{{ number_format($tax, 2) }}</span>
+                                            class="text-heading font-medium">{{ config('cafe.currency.symbol') }}{{ number_format($tax) }}</span>
                                     </div>
                                 @endif
                                 <div class="flex justify-between">
@@ -168,7 +168,7 @@ Features: Cart items, Quantity update, Remove items, Order summary
                                 <div class="flex justify-between items-center">
                                     <span class="font-heading text-lg font-semibold text-heading">Total</span>
                                     <span
-                                        class="text-2xl font-bold text-accent">{{ config('cafe.currency.symbol') }}{{ number_format($total, 2) }}</span>
+                                        class="text-2xl font-bold text-accent">{{ config('cafe.currency.symbol') }}{{ number_format($total) }}</span>
                                 </div>
                             </div>
 

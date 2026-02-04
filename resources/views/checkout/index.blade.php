@@ -194,7 +194,7 @@
                                             <p class="text-xs text-muted">Qty: {{ $item['quantity'] }}</p>
                                         </div>
                                         <span class="text-sm font-medium text-heading">
-                                            {{ config('cafe.currency.symbol') }}{{ number_format($item['price'] * $item['quantity'], 2) }}
+                                            {{ config('cafe.currency.symbol') }}{{ number_format($item['price'] * $item['quantity']) }}
                                         </span>
                                     </div>
                                 @endforeach
@@ -203,12 +203,12 @@
                             <div class="border-t border-primary/10 pt-4 space-y-3 text-sm">
                                 <div class="flex justify-between">
                                     <span class="text-muted">Subtotal</span>
-                                    <span class="text-heading font-medium">{{ config('cafe.currency.symbol') }}{{ number_format($subtotal, 2) }}</span>
+                                    <span class="text-heading font-medium">{{ config('cafe.currency.symbol') }}{{ number_format($subtotal) }}</span>
                                 </div>
                                 @if($taxRate > 0)
                                     <div class="flex justify-between">
                                         <span class="text-muted">Tax ({{ $taxRate }}%)</span>
-                                        <span class="text-heading font-medium">{{ config('cafe.currency.symbol') }}{{ number_format($tax, 2) }}</span>
+                                        <span class="text-heading font-medium">{{ config('cafe.currency.symbol') }}{{ number_format($tax) }}</span>
                                     </div>
                                 @endif
                                 <div class="flex justify-between">
@@ -220,7 +220,7 @@
                             <div class="border-t border-primary/10 mt-4 pt-4">
                                 <div class="flex justify-between items-center">
                                     <span class="font-heading text-lg font-semibold text-heading">Total</span>
-                                    <span class="text-2xl font-bold text-accent">{{ config('cafe.currency.symbol') }}{{ number_format($total, 2) }}</span>
+                                    <span class="text-2xl font-bold text-accent">{{ config('cafe.currency.symbol') }}{{ number_format($total) }}</span>
                                 </div>
                             </div>
 

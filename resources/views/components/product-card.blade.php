@@ -55,11 +55,11 @@ Usage: <x-product-card :product="$product" />
         <!-- Price -->
         <div class="flex items-center space-x-2 mb-3">
             <span class="text-lg font-bold text-accent">
-                {{ config('cafe.currency.symbol') }}{{ number_format($product->current_price, 2) }}
+                {{ config('cafe.currency.symbol') }} {{ number_format($product->current_price) }}
             </span>
             @if($product->has_discount)
                 <span class="text-sm text-muted line-through">
-                    {{ config('cafe.currency.symbol') }}{{ number_format($product->price, 2) }}
+                    {{ config('cafe.currency.symbol') }} {{ number_format($product->price) }}
                 </span>
             @endif
         </div>
@@ -82,5 +82,3 @@ Usage: <x-product-card :product="$product" />
         @endif
     </div>
 </article>
-
-

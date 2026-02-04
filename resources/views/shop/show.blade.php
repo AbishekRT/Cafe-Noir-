@@ -82,11 +82,11 @@ Features: Image gallery, Product info, Add to cart, Related products
                     <!-- Price -->
                     <div class="flex items-center space-x-4 mb-6">
                         <span class="text-3xl font-bold text-accent">
-                            {{ config('cafe.currency.symbol') }}{{ number_format($product->current_price, 2) }}
+                            {{ config('cafe.currency.symbol') }}{{ number_format($product->current_price) }}
                         </span>
                         @if($product->has_discount)
                             <span class="text-xl text-muted line-through">
-                                {{ config('cafe.currency.symbol') }}{{ number_format($product->price, 2) }}
+                                {{ config('cafe.currency.symbol') }}{{ number_format($product->price) }}
                             </span>
                             <span class="bg-accent/20 text-accent text-sm font-semibold px-3 py-1 rounded">
                                 Save {{ $product->discount_percentage }}%

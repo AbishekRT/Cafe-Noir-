@@ -68,10 +68,10 @@ Features: Order details, Summary, Next steps
                                 <div class="flex-grow">
                                     <p class="font-medium text-heading">{{ $item->product_name }}</p>
                                     <p class="text-sm text-muted">Qty: {{ $item->quantity }} ×
-                                        {{ config('cafe.currency.symbol') }}{{ number_format($item->price, 2) }}</p>
+                                        {{ config('cafe.currency.symbol') }}{{ number_format($item->price) }}</p>
                                 </div>
                                 <span class="font-semibold text-heading">
-                                    {{ config('cafe.currency.symbol') }}{{ number_format($item->total, 2) }}
+                                    {{ config('cafe.currency.symbol') }}{{ number_format($item->total) }}
                                 </span>
                             </div>
                         @endforeach
@@ -83,13 +83,13 @@ Features: Order details, Summary, Next steps
                     <div class="flex justify-between text-sm">
                         <span class="text-muted">Subtotal</span>
                         <span
-                            class="text-heading">{{ config('cafe.currency.symbol') }}{{ number_format($order->subtotal, 2) }}</span>
+                            class="text-heading">{{ config('cafe.currency.symbol') }}{{ number_format($order->subtotal) }}</span>
                     </div>
                     @if($order->tax > 0)
                         <div class="flex justify-between text-sm">
                             <span class="text-muted">Tax</span>
                             <span
-                                class="text-heading">{{ config('cafe.currency.symbol') }}{{ number_format($order->tax, 2) }}</span>
+                                class="text-heading">{{ config('cafe.currency.symbol') }}{{ number_format($order->tax) }}</span>
                         </div>
                     @endif
                     <div class="flex justify-between text-sm">
@@ -99,7 +99,7 @@ Features: Order details, Summary, Next steps
                     <div class="flex justify-between pt-2 border-t border-primary/10">
                         <span class="font-heading text-lg font-bold text-heading">Total</span>
                         <span
-                            class="text-xl font-bold text-accent">{{ config('cafe.currency.symbol') }}{{ number_format($order->total, 2) }}</span>
+                            class="text-xl font-bold text-accent">{{ config('cafe.currency.symbol') }}{{ number_format($order->total) }}</span>
                     </div>
                 </div>
 

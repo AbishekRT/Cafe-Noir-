@@ -28,8 +28,8 @@ return [
     |
     */
     'currency' => [
-        'code' => env('CAFE_CURRENCY_CODE', 'USD'),
-        'symbol' => env('CAFE_CURRENCY_SYMBOL', '$'),
+        'code' => env('CAFE_CURRENCY_CODE', 'INR'),
+        'symbol' => env('CAFE_CURRENCY_SYMBOL', 'Rs.'),
     ],
 
     /*
