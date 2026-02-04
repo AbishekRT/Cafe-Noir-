@@ -29,7 +29,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         // Redirect admin users to admin dashboard, regular users to home
-        $intendedUrl = $request->user()->is_admin 
+        $intendedUrl = $request->user()->is_admin
             ? route('admin.dashboard', absolute: false)
             : route('home', absolute: false);
 
