@@ -6,9 +6,10 @@
     <x-slot name="title">Checkout - Cafe Noir</x-slot>
 
     <!-- Page Header -->
-    <section class="bg-primary text-white py-12">
-        <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="font-heading text-h1 font-bold">Checkout</h1>
+    <section class="hero-cart text-white py-14 md:py-16">
+        <div class="relative z-10 max-w-content mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="accent-line-center mb-4"></span>
+            <h1 class="font-heading font-bold" style="font-size: clamp(2rem, 4vw, 3rem);">Checkout</h1>
         </div>
     </section>
 
@@ -32,7 +33,7 @@
                     <!-- Checkout Form -->
                     <div class="lg:col-span-2 space-y-8">
                         <!-- Customer Information -->
-                        <div class="bg-white rounded-lg shadow-subtle p-6">
+                        <div class="bg-white rounded-xl p-6" style="box-shadow: 0 2px 12px rgba(78,52,46,0.06);">
                             <h2 class="font-heading text-xl font-bold text-heading mb-6">Customer Information</h2>
                             
                             <div class="grid sm:grid-cols-2 gap-4">
@@ -109,7 +110,7 @@
                         </div>
 
                         <!-- Payment Method -->
-                        <div class="bg-white rounded-lg shadow-subtle p-6">
+                        <div class="bg-white rounded-xl p-6" style="box-shadow: 0 2px 12px rgba(78,52,46,0.06);">
                             <h2 class="font-heading text-xl font-bold text-heading mb-6">Payment Method</h2>
                             
                             <div class="space-y-4">
@@ -173,7 +174,7 @@
 
                     <!-- Order Summary -->
                     <div class="lg:col-span-1">
-                        <div class="bg-white rounded-lg shadow-subtle p-6 sticky top-24">
+                        <div class="bg-white rounded-xl p-6 sticky top-24" style="box-shadow: 0 2px 12px rgba(78,52,46,0.06);">
                             <h2 class="font-heading text-xl font-bold text-heading mb-6">Order Summary</h2>
 
                             <!-- Items -->

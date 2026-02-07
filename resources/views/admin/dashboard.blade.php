@@ -32,7 +32,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-muted font-medium">Total Revenue</p>
-                            <p class="text-2xl font-bold text-heading mt-1">Rs. {{ number_format($1) }}</p>
+                            <p class="text-2xl font-bold text-heading mt-1">Rs. {{ number_format($stats['totalRevenue']) }}</p>
                         </div>
                         <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                             <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

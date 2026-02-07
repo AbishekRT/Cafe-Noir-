@@ -8,10 +8,12 @@ Features: Product grid, Category filter, Search, Sorting, Pagination
         perfect coffee at Cafe Noir.</x-slot>
 
     <!-- Page Header -->
-    <section class="bg-primary text-white py-12">
-        <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="font-heading text-h1 font-bold mb-4">Our Coffee Collection</h1>
-            <p class="text-secondary/90 max-w-2xl">
+    <section class="hero-shop text-white py-16 md:py-20">
+        <div class="relative z-10 max-w-content mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="accent-line-center mb-4"></span>
+            <h1 class="font-heading font-bold mb-4" style="font-size: clamp(2rem, 4vw, 3rem);">Our Coffee Collection
+            </h1>
+            <p class="max-w-2xl mx-auto" style="color: rgba(245,239,230,0.75);">
                 Discover our carefully curated selection of premium coffee beans from around the world.
             </p>
         </div>
@@ -23,7 +25,8 @@ Features: Product grid, Category filter, Search, Sorting, Pagination
             <div class="flex flex-col lg:flex-row gap-8">
                 <!-- Sidebar Filters -->
                 <aside class="lg:w-64 flex-shrink-0">
-                    <div class="bg-white rounded-lg shadow-subtle p-6 sticky top-24">
+                    <div class="bg-white rounded-xl p-6 sticky top-24"
+                        style="box-shadow: 0 2px 12px rgba(78,52,46,0.06);">
                         <!-- Search -->
                         <div class="mb-6">
                             <h3 class="font-heading text-lg font-semibold text-heading mb-3">Search</h3>
@@ -162,4 +165,3 @@ Features: Product grid, Category filter, Search, Sorting, Pagination
         </div>
     </section>
 </x-app-layout>
-

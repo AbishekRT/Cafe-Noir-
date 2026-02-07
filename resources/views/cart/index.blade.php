@@ -6,9 +6,10 @@ Features: Cart items, Quantity update, Remove items, Order summary
     <x-slot name="title">Shopping Cart - Cafe Noir</x-slot>
 
     <!-- Page Header -->
-    <section class="bg-primary text-white py-12">
-        <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="font-heading text-h1 font-bold">Your Cart</h1>
+    <section class="hero-cart text-white py-14 md:py-16">
+        <div class="relative z-10 max-w-content mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="accent-line-center mb-4"></span>
+            <h1 class="font-heading font-bold" style="font-size: clamp(2rem, 4vw, 3rem);">Your Cart</h1>
         </div>
     </section>
 
@@ -30,9 +31,11 @@ Features: Cart items, Quantity update, Remove items, Order summary
                     <!-- Cart Items -->
                     <div class="lg:col-span-2 space-y-4">
                         @foreach($items as $item)
-                            <div class="bg-white rounded-lg shadow-subtle p-4 flex flex-col sm:flex-row gap-4">
+                            <div class="bg-white rounded-xl p-4 flex flex-col sm:flex-row gap-4"
+                                style="box-shadow: 0 2px 12px rgba(78,52,46,0.06);">
                                 <!-- Product Image -->
-                                <a href="{{ route('shop.show', $item['slug']) }}" class="flex-shrink-0">
+                                <a href="{{ route('shop.show', $item['slug']) }}"
+                                    class="flex-shrink-0 image-zoom rounded-lg overflow-hidden">
                                     @if($item['image'])
                                         <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}"
                                             class="w-24 h-24 object-cover rounded-lg">
@@ -142,7 +145,8 @@ Features: Cart items, Quantity update, Remove items, Order summary
 
                     <!-- Order Summary -->
                     <div class="lg:col-span-1">
-                        <div class="bg-white rounded-lg shadow-subtle p-6 sticky top-24">
+                        <div class="bg-white rounded-xl p-6 sticky top-24"
+                            style="box-shadow: 0 2px 12px rgba(78,52,46,0.06);">
                             <h2 class="font-heading text-xl font-bold text-heading mb-6">Order Summary</h2>
 
                             <div class="space-y-3 text-sm">
@@ -200,4 +204,3 @@ Features: Cart items, Quantity update, Remove items, Order summary
         </div>
     </section>
 </x-app-layout>
-

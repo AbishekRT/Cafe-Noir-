@@ -7,19 +7,20 @@ Features: Image gallery, Product info, Add to cart, Related products
     <x-slot name="metaDescription">{{ $product->seo_description }}</x-slot>
 
     <!-- Breadcrumb -->
-    <nav class="bg-white border-b border-primary/10 py-3">
+    <nav class="py-4"
+        style="background: linear-gradient(90deg, rgba(245,239,230,0.98), rgba(245,239,230,0.95)); border-bottom: 1px solid rgba(78,52,46,0.08);">
         <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
             <ol class="flex items-center space-x-2 text-sm">
                 <li><a href="{{ route('home') }}" class="text-muted hover:text-accent transition-colors">Home</a></li>
-                <li><span class="text-muted">/</span></li>
+                <li><span class="text-muted/50">/</span></li>
                 <li><a href="{{ route('shop.index') }}" class="text-muted hover:text-accent transition-colors">Shop</a>
                 </li>
                 @if($product->category)
-                    <li><span class="text-muted">/</span></li>
+                    <li><span class="text-muted/50">/</span></li>
                     <li><a href="{{ route('shop.index', ['category' => $product->category->slug]) }}"
                             class="text-muted hover:text-accent transition-colors">{{ $product->category->name }}</a></li>
                 @endif
-                <li><span class="text-muted">/</span></li>
+                <li><span class="text-muted/50">/</span></li>
                 <li class="text-heading font-medium truncate">{{ $product->name }}</li>
             </ol>
         </div>
@@ -32,8 +33,8 @@ Features: Image gallery, Product info, Add to cart, Related products
                 <!-- Image Gallery -->
                 <div class="space-y-4">
                     <!-- Main Image -->
-                    <div id="main-image-container"
-                        class="aspect-square bg-white rounded-lg overflow-hidden shadow-subtle">
+                    <div id="main-image-container" class="aspect-square bg-white rounded-xl overflow-hidden image-zoom"
+                        style="box-shadow: 0 4px 20px rgba(78,52,46,0.08);">
                         @if($product->primary_image)
                             <img id="main-image" src="{{ $product->primary_image->large_url }}"
                                 alt="{{ $product->primary_image->alt }}" class="w-full h-full object-cover">
@@ -69,13 +70,15 @@ Features: Image gallery, Product info, Add to cart, Related products
                     <!-- Category -->
                     @if($product->category)
                         <a href="{{ route('shop.index', ['category' => $product->category->slug]) }}"
-                            class="text-sm text-muted hover:text-accent uppercase tracking-wider transition-colors">
+                            class="inline-flex items-center text-xs font-medium uppercase tracking-wider transition-colors"
+                            style="color: #C9A24D;">
                             {{ $product->category->name }}
                         </a>
                     @endif
 
                     <!-- Title -->
-                    <h1 class="font-heading text-h1 font-bold text-heading mt-2 mb-4">
+                    <h1 class="font-heading font-bold text-heading mt-2 mb-4"
+                        style="font-size: clamp(1.5rem, 3vw, 2.5rem);">
                         {{ $product->name }}
                     </h1>
 
@@ -198,9 +201,23 @@ Features: Image gallery, Product info, Add to cart, Related products
 
     <!-- Related Products -->
     @if($relatedProducts->count() > 0)
-        <section class="py-section bg-white">
+        <section class="py-section section-cream">
             <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="font-heading text-h2 font-bold text-heading mb-8">You May Also Like</h2>
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <span class="accent-line mb-3"></span>
+                        <h2 class="font-heading text-h2 font-bold text-heading">You May Also Like</h2>
+                    </div>
+                    <a href="{{ route('shop.index') }}"
+                        class="hidden sm:inline-flex items-center text-accent font-semibold text-sm group">
+                        View All
+                        <svg class="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     @foreach($relatedProducts as $relatedProduct)
                         <x-product-card :product="$relatedProduct" />
@@ -239,4 +256,3 @@ Features: Image gallery, Product info, Add to cart, Related products
         </script>
     @endpush
 </x-app-layout>
-
